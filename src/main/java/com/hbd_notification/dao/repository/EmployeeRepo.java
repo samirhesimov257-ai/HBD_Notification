@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepo extends JpaRepository<EmployeeEnt, Long> {
-//    @Query(value = "SELECT p from dof_employee p where EXTRACT(MONTH(p.dof))=:month and EXTRACT(DAY(p.dof))=:day",nativeQuery = true)
+//    @Query(value = "SELECT * from dof_employee p where EXTRACT(MONTH(p.dof))=:month and EXTRACT(DAY(p.dof))=:day",nativeQuery = true)
 //    List<EmployeeEnt> findByDof(int month,int day);
 @Query(value = "SELECT * FROM dof_employee WHERE EXTRACT(MONTH FROM dof) = :month AND EXTRACT(DAY FROM dof) = :day", nativeQuery = true)
 List<EmployeeEnt> findByDof( int month,  int day);

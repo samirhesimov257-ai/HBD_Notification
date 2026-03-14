@@ -26,9 +26,8 @@ public class EmployeeService {
     }
 
 
-    @Scheduled(cron = "30 * * * * *")
+    @Scheduled(cron = "0 0 0 * * *")
     private void sendHBDMessage() {
-        System.out.println("salam");
         var doi = LocalDate.now();
         var dom = doi.getMonthValue();
         var dod = doi.getDayOfMonth();
@@ -38,8 +37,5 @@ public class EmployeeService {
             sender.sendMail(a.getEmail(),"Hormetli "+a.getFirstName()+" "+a.getLastName()+" "+message);
             repo.save(a);
         }
-
-
     }
-
 }
